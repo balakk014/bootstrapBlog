@@ -27,6 +27,8 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+
   <!-- =======================================================
   * Template Name: Ninestars - v2.0.0
   * Template URL: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/
@@ -86,7 +88,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1">
-          <h1>Bettter digital experience with Ninestars</h1>
+          <h1 class="banner-heading">Bettter digital experience with Ninestars</h1>
           <h2>We are team of talanted designers making websites with Bootstrap</h2>
           <a href="#about" class="btn-get-started scrollto">Get Started</a>
         </div>
@@ -686,6 +688,33 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script type="text/javascript">
+  	
+  	var client = contentful.createClient({
+  		space: '9ljam3n5yhdg',
+  		accessToken: 'Qr1KzrQFE1SLAUhgqi7NDEo7nvNnmI9eH_Vg8SAWMo4'
+	});
+
+	client.getEntry('7M6hc2rqDnMj58nCTvIrAj')
+	.then(function (entry) {
+	  // logs the entry metadata
+	  console.log(entry.fields.bannerHeading)
+	  $('.banner-heading').html(entry.fields.bannerHeading);
+	  // logs the field with ID title
+	  //console.log(entry.fields.productName)
+	})
+
+	// client.getEntries()
+	// .then(function (entries) {
+	//   // log the title for all the entries that have it
+	//   entries.items.forEach(function (entry) {
+	//   	console.log(entry.fields.title);
+	//   })
+	// })
+
+	
+  </script>
 
 </body>
 
